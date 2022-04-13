@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useSetRecoilState } from 'recoil';
 import Stack from '@mui/material/Stack';
@@ -26,11 +27,16 @@ function ColorResult() {
     // API 요청 결과
     const percentList = JSON.parse(sessionStorage.getItem('result'));
 
-    // 퍼스널컬러 결과 (SP / SU / AU / WI)
-    const seasonTone = sessionStorage.getItem('season');
+    // 퍼스널컬러 결과 (SP / SU / AU / WI) => 디폴트 SP
+    const seasonTone = sessionStorage.getItem('season') || 'SP';
 
     // 퍼스널 결과에 따른 색상코드
     const resultColor = SeasonTone(season[seasonTone]);
+
+    // 인공지능 결과가 오지 않으면 메시지 띄우기
+    useEffect(() => {
+        percentList || alert('AI 연결이 불안정합니다. 임의의 결과 값을 보여드립니다.');
+    }, [percentList]);
 
     return (
         <>
@@ -45,10 +51,10 @@ function ColorResult() {
             </MainP>
             <PercentResult
                 resultColor={resultColor}
-                spring={percentList?.springRate}
-                summer={percentList?.summerRate}
-                autumn={percentList?.autumnRate}
-                winter={percentList?.winterRate}
+                spring={percentList?.springRate || 70}
+                summer={percentList?.summerRate || 10}
+                autumn={percentList?.autumnRate || 10}
+                winter={percentList?.winterRate || 10}
             />
 
             <ColorContainerDiv>

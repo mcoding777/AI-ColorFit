@@ -26,7 +26,7 @@ function FashionMatchingPage() {
     const renderPage = renderHTML();
 
     // 페이지 초기화
-    useEffect(() => setFashionPage(0), []);
+    useEffect(() => () => setFashionPage(0), []);
 
     return renderPage;
 }

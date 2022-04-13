@@ -22,7 +22,7 @@ function PersonalColorPage() {
     const renderPage = renderHTML();
 
     // 페이지 초기화
-    useEffect(() => setColorPage(0), []);
+    useEffect(() => () => setColorPage(0), []);
 
     return renderPage;
 }

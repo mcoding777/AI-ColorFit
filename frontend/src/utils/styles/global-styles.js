@@ -55,20 +55,6 @@ const GlobalStyle = createGlobalStyle`
     a {
         text-decoration: none;
     }
-
-    @font-face {
-        font-family: 'Mulish';
-        font-style: normal;
-        font-weight: 500;
-        src: url(${process.env.PUBLIC}/font/Mulish-Medium.ttf);
-    }
-
-    @font-face {
-        font-family: 'Mulish';
-        font-style: normal;
-        font-weight: 700;
-        src: url(${process.env.PUBLIC}/font/Mulish-Bold.ttf);
-    }
 `;
 
 export default GlobalStyle;

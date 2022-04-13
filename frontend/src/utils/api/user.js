@@ -47,9 +47,6 @@ export async function setUserLogin(_userId, _password) {
         sessionStorage.setItem('userId', _userId);
         sessionStorage.setItem('userNickname', response.data.nickname);
 
-        // 토큰 유효성 검사할 때 필요
-        sessionStorage.setItem('accessToken', response.data.access);
-
         // 토큰 유효기간 검사용으로 필요
         Cookies.set('accessToken', response.data.access, {
             path: '/',

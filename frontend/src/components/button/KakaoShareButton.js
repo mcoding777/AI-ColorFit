@@ -44,10 +44,11 @@ export function KakaoShareButton({ id, path }) {
                     },
                 ],
                 itemContent: {
-                    titleImageText: `${path === '/color/'
-                        ? '회원님의 퍼스널컬러 결과를 확인해보세요.'
-                        : '회원님의 패션매칭 결과를 확인해보세요.'
-                        }`,
+                    titleImageText: `${
+                        path === '/color/'
+                            ? '회원님의 퍼스널컬러 결과를 확인해보세요.'
+                            : '회원님의 패션매칭 결과를 확인해보세요.'
+                    }`,
                 },
             });
         }
@@ -65,6 +66,8 @@ export function KakaoShareButton({ id, path }) {
 }
 
 const KakaoiconDiv = styled(ContainerDiv)`
+    cursor: pointer;
+
     img {
         width: 50px;
 
