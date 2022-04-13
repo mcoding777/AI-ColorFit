@@ -26,7 +26,7 @@ function FashionResult() {
     const setFashionPage = useSetRecoilState(fashionPageState);
 
     // 유저가 선택한 퍼스널컬러
-    const seasonTone = sessionStorage.getItem('color');
+    const seasonTone = sessionStorage.getItem('color') || 'SP';
 
     // API 호출 후 세션스토리지에 저장했던 결과 값
     const percentList = JSON.parse(sessionStorage.getItem('result'));
@@ -47,14 +47,14 @@ function FashionResult() {
             </MainP>
             <PercentResult
                 resultColor={resultColor}
-                spring={percentList?.springRate}
-                summer={percentList?.summerRate}
-                autumn={percentList?.autumnRate}
-                winter={percentList?.winterRate}
+                spring={percentList?.springRate || 25}
+                summer={percentList?.summerRate || 25}
+                autumn={percentList?.autumnRate || 25}
+                winter={percentList?.winterRate || 25}
             />
-            <MainP>{getFashionText(percentList.match)}</MainP>
+            <MainP>{getFashionText(percentList?.match)}</MainP>
             <ContentContainerDiv>
-                <MatchingResult match={percentList?.match} />
+                <MatchingResult match={percentList?.match || 'S'} />
             </ContentContainerDiv>
 
             <ColorContainerDiv>
