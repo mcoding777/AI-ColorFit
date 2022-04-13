@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Stack from '@mui/material/Stack';
 import { useSetRecoilState } from 'recoil';
@@ -33,6 +34,11 @@ function FashionResult() {
 
     // 퍼스널컬러에 따른 대표 색상
     const resultColor = SeasonTone(season[seasonTone]);
+
+    // 인공지능 결과가 오지 않으면 메시지 띄우기
+    useEffect(() => {
+        percentList || alert('AI 연결이 불안정합니다. 임의의 결과 값을 보여드립니다.');
+    }, [percentList]);
 
     return (
         <>

@@ -35,8 +35,8 @@ function ColorResult() {
 
     // 인공지능 결과가 오지 않으면 메시지 띄우기
     useEffect(() => {
-        sessionStorage.getItem('season') || alert('AI 연결이 불안정합니다. 임의의 결과 값을 보여드립니다.');
-    }, []);
+        percentList || alert('AI 연결이 불안정합니다. 임의의 결과 값을 보여드립니다.');
+    }, [percentList]);
 
     return (
         <>
